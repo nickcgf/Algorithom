@@ -53,20 +53,17 @@ class Solution:
                 if offset2 == n:
                     return nums1[offset1+k-1]
                 if k == 1:
-                    # print(offset1,offset2)
                     return min(nums1[offset1], nums2[offset2])
                 
                 temp = k // 2 - 1
                 index1 = min(m-1, temp + offset1)
                 index2 = min(n-1, temp + offset2)
-                # print("idx:",index1,index2)
                 if nums1[index1] <= nums2[index2]:
                     k -= index1 - offset1 + 1
                     offset1 = index1 + 1
                 else:
                     k -= index2 - offset2 + 1
                     offset2 = index2 + 1
-                # print(k, offset1, offset2)
         
         if (n+m) % 2 == 1:
             return getKthElement((n+m+1) // 2)
